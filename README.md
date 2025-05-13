@@ -10,13 +10,13 @@ Install all required dependencies using `pip`:
 pip install -r requirements.txt
 ```
 
-### 🚀 Running the Tagger
+### 🚀 Running the Model tranining to generate weights and predictions
 
 Run the tagger with a specified preprocessing version:
 
 ```bash
-python3 main.py --version 1  # uses preprocessing_1
-python3 main.py --version 2  # uses preprocessing_2
+python3 main.py --version 1  # uses preprocessing_1 and train1
+python3 main.py --version 2 --kfold # uses preprocessing_2 and train2
 ```
 
 The script will:
@@ -31,7 +31,11 @@ The script will:
 Run this from the **root** of the repository (not from the `code/` folder):
 
 ```bash
-python code/generate_comp_tagged.py --version 1
+# generateds comp1_generate_predict.wtag against data/comp1.words
+python code/generate_comp_tagged.py --version 1 
+
+# generateds comp2_generate_predict.wtag against data/compo2.words
+python code/generate_comp_tagged.py --version 2 
 ```
 
 This will:
@@ -42,22 +46,8 @@ This will:
 Make sure you have trained the model first by running:
 
 ```bash
-python main.py --version 1
-```
+python code/main.py --version 1
 
-(Use `--version 2` for the alternate preprocessing model.)
-
-
-### 🧰 Utility Scripts
-
-Strip tags from a `.wtag` file (remove all POS tags and underscores):
-
-```bash
-python strip_and_compare_wtag.py --strip input.wtag output.txt
-```
-
-Compare two `.wtag` files and highlight mismatched predictions:
-
-```bash
-python strip_and_compare_wtag.py --compare predictions1.wtag predictions2.wtag
+# for train2 data
+python3 main.py --version 2 --kfold
 ```
