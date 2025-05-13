@@ -1,3 +1,29 @@
+"""
+generate_comp_tagged.py
+
+This script loads a trained MEMM model and uses it to tag a competition dataset
+(e.g., comp1.words or comp2.words). It outputs a tagged .wtag file with the format:
+word_TAG for each token in the input.
+
+Usage:
+    python3 code/generate_comp_tagged.py --version 1
+    python3 code/generate_comp_tagged.py --version 2
+
+Requirements:
+- The model must already be trained and the weights saved as:
+    trained_models/weights_1.pkl or weights_2.pkl
+    the models are saved under the folder "trained_mededls"
+- The corresponding competition file must exist at:
+    data/comp1.words or data/comp2.words under the folder "data"
+
+Output:
+- The output tagged file will be saved as:
+    comp1_generate_predict.wtag or comp2_generate_predict.wtag (in the project root)
+
+Arguments:
+--version [1|2] : Choose the preprocessing version used during training.
+"""
+
 import importlib
 import os
 import pickle
