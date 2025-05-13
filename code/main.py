@@ -248,7 +248,7 @@ def main(version=1, use_kfold=False, k=5, lambda_values=None):
 
     # === Inference ===
     comp_words_path = os.path.join(ROOT_DIR, "data", f"comp{version}.words")
-    comp_output_path = os.path.join(ROOT_DIR, f"comp{version}_208152439_203912506.wtag")
+    comp_output_path = os.path.join(ROOT_DIR, f"comp{version}_m{version}_208152439_203912506.wtag")
 
     if version == 1:
         if os.path.exists(predictions_path):
